@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="proportyData">
+            <h2><span jhiTranslate="businessDataApp.proportyData.detail.title">Proporty Data</span> {{proportyData.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="businessDataApp.proportyData.proportyValue">Proporty Value</span></dt>
+                <dd>
+                    <span>{{proportyData.proportyValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="businessDataApp.proportyData.entityInstance">Entity Instance</span></dt>
+                <dd>
+                    <div *ngIf="proportyData.entityInstance">
+                        <a [routerLink]="['/entity-instance', proportyData.entityInstance?.id, 'view']">{{proportyData.entityInstance?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="businessDataApp.proportyData.proportyModel">Proporty Model</span></dt>
+                <dd>
+                    <div *ngIf="proportyData.proportyModel">
+                        <a [routerLink]="['/proporty-model', proportyData.proportyModel?.id, 'view']">{{proportyData.proportyModel?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/proporty-data', proportyData.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

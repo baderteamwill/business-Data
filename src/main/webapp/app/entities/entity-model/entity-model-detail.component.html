@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="entityModel">
+            <h2><span jhiTranslate="businessDataApp.entityModel.detail.title">Entity Model</span> {{entityModel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="businessDataApp.entityModel.entityName">Entity Name</span></dt>
+                <dd>
+                    <span>{{entityModel.entityName}}</span>
+                </dd>
+                <dt><span jhiTranslate="businessDataApp.entityModel.entityDescription">Entity Description</span></dt>
+                <dd>
+                    <span>{{entityModel.entityDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="businessDataApp.entityModel.databaseModel">Database Model</span></dt>
+                <dd>
+                    <div *ngIf="entityModel.databaseModel">
+                        <a [routerLink]="['/database-model', entityModel.databaseModel?.id, 'view']">{{entityModel.databaseModel?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/entity-model', entityModel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

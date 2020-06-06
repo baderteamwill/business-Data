@@ -1,0 +1,24 @@
+{
+  "businessDataApp": {
+    "instanceRelation": {
+      "home": {
+        "title": "InstanceRelations",
+        "createLabel": "Créer un nouveau Instance Relation",
+        "createOrEditLabel": "Créer ou éditer un Instance Relation",
+        "notFound": "Aucun Instance Relation trouvé"
+      },
+      "created": "Un nouveau Instance Relation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Instance Relation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Instance Relation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Instance Relation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Instance Relation"
+      },
+      "entityInstance": "Entity Instance",
+      "entityInstance2": "Entity Instance 2",
+      "entityRelation": "Entity Relation"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="businessDataApp.instanceRelation.home.title">Instance Relations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-instance-relation" [routerLink]="['/instance-relation/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="businessDataApp.instanceRelation.home.createLabel">
+            Create a new Instance Relation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="instanceRelations?.length === 0">
+        <span jhiTranslate="businessDataApp.instanceRelation.home.notFound">No instanceRelations found</span>
+    </div>
+    <div class="table-responsive" *ngIf="instanceRelations?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.instanceRelation.entityInstance">Entity Instance</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.instanceRelation.entityInstance2">Entity Instance 2</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.instanceRelation.entityRelation">Entity Relation</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let instanceRelation of instanceRelations ;trackBy: trackId">
+                <td><a [routerLink]="['/instance-relation', instanceRelation.id, 'view' ]">{{instanceRelation.id}}</a></td>
+                <td>
+                    <div *ngIf="instanceRelation.entityInstance">
+                        <a [routerLink]="['/entity-instance', instanceRelation.entityInstance?.id, 'view' ]" >{{instanceRelation.entityInstance?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="instanceRelation.entityInstance2">
+                        <a [routerLink]="['/entity-instance', instanceRelation.entityInstance2?.id, 'view' ]" >{{instanceRelation.entityInstance2?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="instanceRelation.entityRelation">
+                        <a [routerLink]="['/entity-relation', instanceRelation.entityRelation?.id, 'view' ]" >{{instanceRelation.entityRelation?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/instance-relation', instanceRelation.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/instance-relation', instanceRelation.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(instanceRelation)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

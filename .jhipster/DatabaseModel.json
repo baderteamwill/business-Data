@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "entityModel",
+            "otherEntityName": "entityModel",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "databaseModel"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "databaseModel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "databaseDescription",
+            "fieldType": "String"
+        }
+    ],
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "database_model",
+    "databaseType": "mongodb",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

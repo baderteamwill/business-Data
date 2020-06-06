@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="businessDataApp.entityinstance.home.title">Entityinstances</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-entityinstance" [routerLink]="['/entityinstance/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="businessDataApp.entityinstance.home.createLabel">
+            Create a new Entityinstance
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="entityinstances?.length === 0">
+        <span jhiTranslate="businessDataApp.entityinstance.home.notFound">No entityinstances found</span>
+    </div>
+    <div class="table-responsive" *ngIf="entityinstances?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.entityinstance.instanceName">Instance Name</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.entityinstance.entityModel">Entity Model</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let entityinstance of entityinstances ;trackBy: trackId">
+                <td><a [routerLink]="['/entityinstance', entityinstance.id, 'view' ]">{{entityinstance.id}}</a></td>
+                <td>{{entityinstance.instanceName}}</td>
+                <td>
+                    <div *ngIf="entityinstance.entityModel">
+                        <a [routerLink]="['/entity-model', entityinstance.entityModel?.id, 'view' ]" >{{entityinstance.entityModel?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/entityinstance', entityinstance.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/entityinstance', entityinstance.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(entityinstance)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

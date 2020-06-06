@@ -1,0 +1,57 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="businessDataApp.databaseModel.home.title">Database Models</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-database-model" [routerLink]="['/database-model/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="businessDataApp.databaseModel.home.createLabel">
+            Create a new Database Model
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="databaseModels?.length === 0">
+        <span jhiTranslate="businessDataApp.databaseModel.home.notFound">No databaseModels found</span>
+    </div>
+    <div class="table-responsive" *ngIf="databaseModels?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.databaseModel.databaseModel">Database Model</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.databaseModel.databaseDescription">Database Description</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let databaseModel of databaseModels ;trackBy: trackId">
+                <td><a [routerLink]="['/database-model', databaseModel.id, 'view' ]">{{databaseModel.id}}</a></td>
+                <td>{{databaseModel.databaseModel}}</td>
+                <td>{{databaseModel.databaseDescription}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/database-model', databaseModel.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/database-model', databaseModel.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(databaseModel)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

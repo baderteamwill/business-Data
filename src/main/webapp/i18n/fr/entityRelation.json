@@ -1,0 +1,25 @@
+{
+  "businessDataApp": {
+    "entityRelation": {
+      "home": {
+        "title": "EntityRelations",
+        "createLabel": "Créer un nouveau Entity Relation",
+        "createOrEditLabel": "Créer ou éditer un Entity Relation",
+        "notFound": "Aucun Entity Relation trouvé"
+      },
+      "created": "Un nouveau Entity Relation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Entity Relation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Entity Relation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Entity Relation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Entity Relation"
+      },
+      "relation": "Relation",
+      "entityModel": "Entity Model",
+      "entityModel2": "Entity Model 2",
+      "instanceRelation": "Instance Relation"
+    }
+  }
+}

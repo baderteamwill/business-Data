@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-proporty-data-heading" jhiTranslate="businessDataApp.proportyData.home.createOrEditLabel">Create or edit a Proporty Data</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="businessDataApp.proportyData.proportyValue" for="field_proportyValue">Proporty Value</label>
+                    <input type="text" class="form-control" name="proportyValue" id="field_proportyValue"
+                           formControlName="proportyValue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="businessDataApp.proportyData.entityInstance" for="field_entityInstance">Entity Instance</label>
+                    <select class="form-control" id="field_entityInstance" name="entityInstance" formControlName="entityInstance">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="entityInstanceOption.id === editForm.get('entityInstance')!.value?.id ? editForm.get('entityInstance')!.value : entityInstanceOption" *ngFor="let entityInstanceOption of entityinstances; trackBy: trackById">{{entityInstanceOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="businessDataApp.proportyData.proportyModel" for="field_proportyModel">Proporty Model</label>
+                    <select class="form-control" id="field_proportyModel" name="proportyModel" formControlName="proportyModel">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="proportyModelOption.id === editForm.get('proportyModel')!.value?.id ? editForm.get('proportyModel')!.value : proportyModelOption" *ngFor="let proportyModelOption of proportymodels; trackBy: trackById">{{proportyModelOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

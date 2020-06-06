@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="businessDataApp.proportyData.home.title">Proporty Data</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-proporty-data" [routerLink]="['/proporty-data/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="businessDataApp.proportyData.home.createLabel">
+            Create a new Proporty Data
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="proportyData?.length === 0">
+        <span jhiTranslate="businessDataApp.proportyData.home.notFound">No proportyData found</span>
+    </div>
+    <div class="table-responsive" *ngIf="proportyData?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.proportyData.proportyValue">Proporty Value</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.proportyData.entityInstance">Entity Instance</span></th>
+            <th scope="col" ><span jhiTranslate="businessDataApp.proportyData.proportyModel">Proporty Model</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let proportyData of proportyData ;trackBy: trackId">
+                <td><a [routerLink]="['/proporty-data', proportyData.id, 'view' ]">{{proportyData.id}}</a></td>
+                <td>{{proportyData.proportyValue}}</td>
+                <td>
+                    <div *ngIf="proportyData.entityInstance">
+                        <a [routerLink]="['/entity-instance', proportyData.entityInstance?.id, 'view' ]" >{{proportyData.entityInstance?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="proportyData.proportyModel">
+                        <a [routerLink]="['/proporty-model', proportyData.proportyModel?.id, 'view' ]" >{{proportyData.proportyModel?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/proporty-data', proportyData.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/proporty-data', proportyData.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(proportyData)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

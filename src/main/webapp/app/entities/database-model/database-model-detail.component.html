@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="databaseModel">
+            <h2><span jhiTranslate="businessDataApp.databaseModel.detail.title">Database Model</span> {{databaseModel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="businessDataApp.databaseModel.databaseModel">Database Model</span></dt>
+                <dd>
+                    <span>{{databaseModel.databaseModel}}</span>
+                </dd>
+                <dt><span jhiTranslate="businessDataApp.databaseModel.databaseDescription">Database Description</span></dt>
+                <dd>
+                    <span>{{databaseModel.databaseDescription}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/database-model', databaseModel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

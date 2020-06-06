@@ -1,0 +1,26 @@
+{
+  "businessDataApp": {
+    "entityInstance": {
+      "home": {
+        "title": "EntityInstances",
+        "createLabel": "Créer un nouveau Entity Instance",
+        "createOrEditLabel": "Créer ou éditer un Entity Instance",
+        "notFound": "Aucun Entity Instance trouvé"
+      },
+      "created": "Un nouveau Entity Instance a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Entity Instance avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Entity Instance avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Entity Instance {{ id }} ?"
+      },
+      "detail": {
+        "title": "Entity Instance"
+      },
+      "instanceName": "Instance Name",
+      "proportyData": "Proporty Data",
+      "entityModel": "Entity Model",
+      "instanceRelation": "Instance Relation",
+      "instanceRelation2": "Instance Relation 2"
+    }
+  }
+}

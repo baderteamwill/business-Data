@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "entityModel",
+            "otherEntityName": "entityModel",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "proportyModel"
+        },
+        {
+            "relationshipName": "proportyData",
+            "otherEntityName": "proportyData",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "proportyModel"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "proportyName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proportyType",
+            "fieldType": "Type",
+            "fieldValues": "INT,FLOAT,STRING,BOOLEAN"
+        }
+    ],
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "proporty_model",
+    "databaseType": "mongodb",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

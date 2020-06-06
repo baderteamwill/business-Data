@@ -1,0 +1,24 @@
+{
+  "businessDataApp": {
+    "proportyData": {
+      "home": {
+        "title": "ProportyData",
+        "createLabel": "Créer un nouveau Proporty Data",
+        "createOrEditLabel": "Créer ou éditer un Proporty Data",
+        "notFound": "Aucun Proporty Data trouvé"
+      },
+      "created": "Un nouveau Proporty Data a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Proporty Data avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Proporty Data avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Proporty Data {{ id }} ?"
+      },
+      "detail": {
+        "title": "Proporty Data"
+      },
+      "proportyValue": "Proporty Value",
+      "entityInstance": "Entity Instance",
+      "proportyModel": "Proporty Model"
+    }
+  }
+}

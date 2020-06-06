@@ -1,0 +1,28 @@
+{
+  "businessDataApp": {
+    "entityModel": {
+      "home": {
+        "title": "EntityModels",
+        "createLabel": "Créer un nouveau Entity Model",
+        "createOrEditLabel": "Créer ou éditer un Entity Model",
+        "notFound": "Aucun Entity Model trouvé"
+      },
+      "created": "Un nouveau Entity Model a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Entity Model avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Entity Model avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Entity Model {{ id }} ?"
+      },
+      "detail": {
+        "title": "Entity Model"
+      },
+      "entityName": "Entity Name",
+      "entityDescription": "Entity Description",
+      "databaseModel": "Database Model",
+      "proportyModel": "Proporty Model",
+      "entityInstance": "Entity Instance",
+      "entityRelation": "Entity Relation",
+      "entityRelation2": "Entity Relation 2"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "businessDataApp": {
+    "proportyModel": {
+      "home": {
+        "title": "Proporty Models",
+        "createLabel": "Create a new Proporty Model",
+        "createOrEditLabel": "Create or edit a Proporty Model",
+        "notFound": "No Proporty Models found"
+      },
+      "created": "A new Proporty Model is created with identifier {{ param }}",
+      "updated": "A Proporty Model is updated with identifier {{ param }}",
+      "deleted": "A Proporty Model is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Proporty Model {{ id }}?"
+      },
+      "detail": {
+        "title": "Proporty Model"
+      },
+      "proportyName": "Proporty Name",
+      "proportyType": "Proporty Type",
+      "entityModel": "Entity Model",
+      "proportyData": "Proporty Data"
+    }
+  }
+}

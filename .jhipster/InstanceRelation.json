@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "entityInstance",
+            "otherEntityName": "entityInstance",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "instanceRelation"
+        },
+        {
+            "relationshipName": "entityInstance2",
+            "otherEntityName": "entityInstance",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "instanceRelation2"
+        },
+        {
+            "relationshipName": "entityRelation",
+            "otherEntityName": "entityRelation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "instanceRelation"
+        }
+    ],
+    "fields": [],
+    "dto": "no",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "instance_relation",
+    "databaseType": "mongodb",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

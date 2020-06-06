@@ -1,0 +1,11 @@
+{
+  "businessDataApp": {
+    "Type": {
+      "null": "",
+      "INT": "INT",
+      "FLOAT": "FLOAT",
+      "STRING": "STRING",
+      "BOOLEAN": "BOOLEAN"
+    }
+  }
+}

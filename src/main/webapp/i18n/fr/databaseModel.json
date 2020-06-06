@@ -1,0 +1,24 @@
+{
+  "businessDataApp": {
+    "databaseModel": {
+      "home": {
+        "title": "DatabaseModels",
+        "createLabel": "Créer un nouveau Database Model",
+        "createOrEditLabel": "Créer ou éditer un Database Model",
+        "notFound": "Aucun Database Model trouvé"
+      },
+      "created": "Un nouveau Database Model a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Database Model avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Database Model avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Database Model {{ id }} ?"
+      },
+      "detail": {
+        "title": "Database Model"
+      },
+      "databaseModel": "Database Model",
+      "databaseDescription": "Database Description",
+      "entityModel": "Entity Model"
+    }
+  }
+}

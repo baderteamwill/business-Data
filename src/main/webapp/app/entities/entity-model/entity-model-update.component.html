@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-entity-model-heading" jhiTranslate="businessDataApp.entityModel.home.createOrEditLabel">Create or edit a Entity Model</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="businessDataApp.entityModel.entityName" for="field_entityName">Entity Name</label>
+                    <input type="text" class="form-control" name="entityName" id="field_entityName"
+                           formControlName="entityName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="businessDataApp.entityModel.entityDescription" for="field_entityDescription">Entity Description</label>
+                    <input type="text" class="form-control" name="entityDescription" id="field_entityDescription"
+                           formControlName="entityDescription"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="businessDataApp.entityModel.databaseModel" for="field_databaseModel">Database Model</label>
+                    <select class="form-control" id="field_databaseModel" name="databaseModel" formControlName="databaseModel">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="databaseModelOption.id === editForm.get('databaseModel')!.value?.id ? editForm.get('databaseModel')!.value : databaseModelOption" *ngFor="let databaseModelOption of databasemodels; trackBy: trackById">{{databaseModelOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

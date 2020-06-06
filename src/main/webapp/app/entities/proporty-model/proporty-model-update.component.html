@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-proporty-model-heading" jhiTranslate="businessDataApp.proportyModel.home.createOrEditLabel">Create or edit a Proporty Model</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="businessDataApp.proportyModel.proportyName" for="field_proportyName">Proporty Name</label>
+                    <input type="text" class="form-control" name="proportyName" id="field_proportyName"
+                           formControlName="proportyName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="businessDataApp.proportyModel.proportyType" for="field_proportyType">Proporty Type</label>
+                    <select class="form-control" name="proportyType" formControlName="proportyType" id="field_proportyType">
+                        <option value="INT">{{'businessDataApp.Type.INT' | translate}}</option>
+                        <option value="FLOAT">{{'businessDataApp.Type.FLOAT' | translate}}</option>
+                        <option value="STRING">{{'businessDataApp.Type.STRING' | translate}}</option>
+                        <option value="BOOLEAN">{{'businessDataApp.Type.BOOLEAN' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="businessDataApp.proportyModel.entityModel" for="field_entityModel">Entity Model</label>
+                    <select class="form-control" id="field_entityModel" name="entityModel" formControlName="entityModel">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="entityModelOption.id === editForm.get('entityModel')!.value?.id ? editForm.get('entityModel')!.value : entityModelOption" *ngFor="let entityModelOption of entitymodels; trackBy: trackById">{{entityModelOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="entityInstance">
+            <h2><span jhiTranslate="businessDataApp.entityInstance.detail.title">Entity Instance</span> {{entityInstance.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="businessDataApp.entityInstance.instanceName">Instance Name</span></dt>
+                <dd>
+                    <span>{{entityInstance.instanceName}}</span>
+                </dd>
+                <dt><span jhiTranslate="businessDataApp.entityInstance.entityModel">Entity Model</span></dt>
+                <dd>
+                    <div *ngIf="entityInstance.entityModel">
+                        <a [routerLink]="['/entity-model', entityInstance.entityModel?.id, 'view']">{{entityInstance.entityModel?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/entity-instance', entityInstance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
